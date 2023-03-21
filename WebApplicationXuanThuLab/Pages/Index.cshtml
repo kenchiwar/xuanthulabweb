@@ -1,0 +1,75 @@
+﻿@page "/index" 
+
+@model WebApplicationXuanThuLab.Pages.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblStudent[0].StuPass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblStudent[0].StuAdress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblStudent[0].StuPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblStudent[0].StuEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblStudent[0].StuName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblStudent[0].DeptId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblStudent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuPass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.StuId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.StuId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.StuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
